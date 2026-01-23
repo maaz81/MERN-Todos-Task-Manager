@@ -1,5 +1,6 @@
 import React, { useState } from 'react'; // Added useState import
 import axios from 'axios';
+import { API_URL } from '../config/api';
 
 const Todo = () => { // Changed component name to start with uppercase (convention)
     const [newTodo, setNewTodo] = useState('');
@@ -8,7 +9,7 @@ const Todo = () => { // Changed component name to start with uppercase (conventi
         if (!newTodo.trim()) return;
         
         try {
-            const response = await axios.post('http://localhost:5000/api/todos', {
+            const response = await axios.post(`${API_URL}/todos`, {
                 title: newTodo,
                 completed: false
             });
