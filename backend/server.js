@@ -11,8 +11,9 @@ const whitelist = [
   "http://localhost:3000",
   "http://localhost:5173",
   "http://localhost:5174",
-  "https://your-frontend.onrender.com"
+  "https://mern-todos-task-manager.vercel.app"
 ];
+
 
 app.use(cors({
   origin: (origin, callback) => {
