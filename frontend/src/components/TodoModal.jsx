@@ -1,4 +1,3 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
 
 const TodoModal = ({ todo, onClose }) => {
@@ -6,7 +5,7 @@ const TodoModal = ({ todo, onClose }) => {
 
   return (
     <AnimatePresence>
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -31,13 +30,13 @@ const TodoModal = ({ todo, onClose }) => {
                 <FiX size={20} />
               </button>
             </div>
-            
+
             <div className="mb-4">
               <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">
                 {todo.desc}
               </p>
             </div>
-            
+
             <div className="text-sm text-gray-500 dark:text-gray-400">
               <p>Created: {new Date(todo.createdAt).toLocaleString()}</p>
               <p>Status: {todo.completed ? 'Completed' : 'Active'}</p>

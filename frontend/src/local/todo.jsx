@@ -4,15 +4,16 @@ import { API_URL } from '../config/api';
 
 const Todo = () => { // Changed component name to start with uppercase (convention)
     const [newTodo, setNewTodo] = useState('');
-    
+
     const addTodo = async () => {
         if (!newTodo.trim()) return;
-        
+
         try {
             const response = await axios.post(`${API_URL}/todos`, {
                 title: newTodo,
                 completed: false
             });
+            console.log(response.data)
             setNewTodo('');
         } catch (err) {
             console.error('Error adding todo:', err);
@@ -21,11 +22,11 @@ const Todo = () => { // Changed component name to start with uppercase (conventi
 
     return (
         <div className='flex flex-col  h-screen bg-zinc-800 items-center'>
-            <input 
-                value={newTodo} 
+            <input
+                value={newTodo}
                 onChange={(e) => setNewTodo(e.target.value)} // Added onChange handler
-                type="text" 
-                placeholder='enter todo' 
+                type="text"
+                placeholder='enter todo'
                 className='rounded-lg px-4 py-2 h-10 mt-20 w-40'
             />
             <button className='bg-blue-500 px-4 py-2 h-10 mt-10 w-20 rounded-lg' onClick={addTodo}>Add</button>

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { FiTrash2, FiEye } from 'react-icons/fi';
 
 const TodoItem = ({ todo, onToggle, onDelete, onView }) => {

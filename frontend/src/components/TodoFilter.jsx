@@ -1,10 +1,9 @@
-import { motion } from 'framer-motion';
 
 const TodoFilter = ({ filter, setFilter, remainingCount, onClearCompleted }) => {
   return (
     <div className="px-4 py-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center text-sm gap-3">
       <span className="whitespace-nowrap">{remainingCount} {remainingCount === 1 ? 'item' : 'items'} left</span>
-      
+
       <div className="flex space-x-2 order-first sm:order-none">
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -31,7 +30,7 @@ const TodoFilter = ({ filter, setFilter, remainingCount, onClearCompleted }) => 
           Completed
         </motion.button>
       </div>
-      
+
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}

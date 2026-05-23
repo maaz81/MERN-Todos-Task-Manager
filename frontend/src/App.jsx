@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import TodoForm from './components/TodoForm';
 import TodoItem from './components/TodoItem';
 import TodoFilter from './components/TodoFilter';
 import TodoModal from './components/TodoModal';
-import axios from 'axios';
 
 const App = () => {
   const [todos, setTodos] = useState(() => {
@@ -41,7 +39,7 @@ const App = () => {
     }
   }, [darkMode]);
 
- 
+
   const toggleTodo = (id) => {
     setTodos(
       todos.map(todo =>
@@ -49,7 +47,7 @@ const App = () => {
       )
     );
   };
-  
+
   const deleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
@@ -71,7 +69,7 @@ const App = () => {
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
       <div className="container mx-auto px-4 py-8 md:py-12 max-w-md">
-        <motion.div 
+        <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}
@@ -89,7 +87,7 @@ const App = () => {
 
         <TodoForm setTodos={setTodos} />
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -119,7 +117,7 @@ const App = () => {
             )}
           </AnimatePresence>
 
-          <TodoFilter 
+          <TodoFilter
             filter={filter}
             setFilter={setFilter}
             remainingCount={remainingCount}
@@ -128,7 +126,7 @@ const App = () => {
         </motion.div>
       </div>
 
-      <TodoModal 
+      <TodoModal
         todo={viewingTodo}
         onClose={() => setViewingTodo(null)}
       />
