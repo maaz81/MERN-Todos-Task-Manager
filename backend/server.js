@@ -4,6 +4,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const todoRoutes = require('./routes/todos')
+const dns = require('dns')
+
+dns.setServers(["1.1.1.1", "0.0.0.0"])
 
 const app = express();
 
